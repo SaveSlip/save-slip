@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SaveSlip",
-  description: "Automated receipt capture, return reminders, and expense tracking for solopreneurs.",
+  title: "Save Slip",
+  description:
+    "Automated receipt capture, return reminders, and expense tracking for solopreneurs.",
 };
 
 export default function RootLayout({
