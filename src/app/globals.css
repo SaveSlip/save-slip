@@ -1,1 +1,664 @@
+/* ============================================================
+   SaveSlip — Global CSS
+   Palette: Slate & Sage
+   Tailwind v4 + shadcn/ui compatible
+   ============================================================ */
+
+/* ──────────────────────────────────────────────────────────────
+   1. TAILWIND v4 IMPORTS
+   ────────────────────────────────────────────────────────────── */
 @import "tailwindcss";
+
+/* ──────────────────────────────────────────────────────────────
+   2. FONT IMPORTS — via @import for Tailwind v4
+   ────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap");
+
+/* ──────────────────────────────────────────────────────────────
+   3. TAILWIND v4 THEME — Custom Design Tokens
+      Use @theme for all custom tokens
+   ────────────────────────────────────────────────────────────── */
+@theme {
+  /* === FONTS === */
+  --font-family-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-family-mono: "DM Mono", ui-monospace, "Cascadia Code", monospace;
+  --font-family-serif: Georgia, ui-serif, serif;
+
+  /* === SLATE RAMP === */
+  --color-slate-50: #f4f4f0;
+  --color-slate-100: #e8e8e3;
+  --color-slate-200: #d0d0c8;
+  --color-slate-300: #b0b0a8;
+  --color-slate-400: #888780;
+  --color-slate-500: #6b6b64;
+  --color-slate-600: #4a4a44;
+  --color-slate-700: #3e4460;
+  --color-slate-800: #2d3142;
+  --color-slate-900: #1e2235;
+  --color-slate-950: #0e0f18;
+
+  /* === SAGE RAMP === */
+  --color-sage-50: #eef6ed;
+  --color-sage-100: #d6e8d0;
+  --color-sage-200: #bad4b4;
+  --color-sage-300: #99bf94;
+  --color-sage-400: #7aaf78;
+  --color-sage-500: #5c8e5a;
+  --color-sage-600: #437040;
+  --color-sage-700: #2d5929;
+  --color-sage-800: #1e3c1a;
+  --color-sage-900: #112210;
+  --color-sage-950: #080f07;
+
+  /* === CORAL RAMP === */
+  --color-coral-50: #fdf0ec;
+  --color-coral-100: #fad9cf;
+  --color-coral-200: #f5b9a8;
+  --color-coral-300: #ee9880;
+  --color-coral-400: #e48b6a;
+  --color-coral-500: #e07a5f;
+  --color-coral-600: #c0593e;
+  --color-coral-700: #8f3d28;
+  --color-coral-800: #6a2c1c;
+  --color-coral-900: #451b11;
+  --color-coral-950: #200d08;
+
+  /* === INDIGO RAMP === */
+  --color-indigo-50: #eceef8;
+  --color-indigo-100: #c9cff0;
+  --color-indigo-200: #a4ade5;
+  --color-indigo-300: #8091da;
+  --color-indigo-400: #6275ce;
+  --color-indigo-500: #4a5480;
+  --color-indigo-600: #3a4268;
+  --color-indigo-700: #2c3252;
+  --color-indigo-800: #1e223a;
+  --color-indigo-900: #111428;
+  --color-indigo-950: #080914;
+
+  /* === STONE RAMP === */
+  --color-stone-50: #fafaf8;
+  --color-stone-100: #f4f4f0;
+  --color-stone-200: #e8e8e3;
+  --color-stone-300: #d0d0c8;
+  --color-stone-400: #aeaea6;
+  --color-stone-500: #888780;
+  --color-stone-600: #646460;
+
+  /* === BORDER RADIUS === */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+
+  /* === SHADOWS === */
+  --shadow-xs: 0 1px 2px 0 rgb(45 49 66 / 0.05);
+  --shadow-sm:
+    0 1px 3px 0 rgb(45 49 66 / 0.1), 0 1px 2px -1px rgb(45 49 66 / 0.06);
+  --shadow-md:
+    0 4px 6px -1px rgb(45 49 66 / 0.08), 0 2px 4px -2px rgb(45 49 66 / 0.05);
+  --shadow-lg:
+    0 10px 15px -3px rgb(45 49 66 / 0.08), 0 4px 6px -4px rgb(45 49 66 / 0.05);
+  --shadow-xl:
+    0 20px 25px -5px rgb(45 49 66 / 0.1), 0 8px 10px -6px rgb(45 49 66 / 0.05);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   4. shadcn/ui CSS VARIABLES — :root (light mode)
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    /* Core surfaces */
+    --background: 240 7% 97%; /* #F4F4F0 slate-50 */
+    --foreground: 237 15% 22%; /* #2D3142 slate-800 */
+
+    /* Card */
+    --card: 0 0% 100%; /* #ffffff */
+    --card-foreground: 237 15% 22%; /* #2D3142 slate-800 */
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 237 15% 22%;
+
+    /* Primary — sage green */
+    --primary: 118 22% 45%; /* #5C8E5A sage-500 */
+    --primary-foreground: 0 0% 100%; /* #ffffff */
+
+    /* Secondary — light slate */
+    --secondary: 60 7% 91%; /* #E8E8E3 slate-100 */
+    --secondary-foreground: 237 20% 31%; /* #3E4460 slate-700 */
+
+    /* Muted */
+    --muted: 60 9% 92%; /* #EAEAE5 */
+    --muted-foreground: 60 2% 42%; /* #6B6B64 slate-500 */
+
+    /* Accent — light sage tint */
+    --accent: 112 37% 86%; /* #D6E8D0 sage-100 */
+    --accent-foreground: 117 37% 25%; /* #2D5929 sage-700 */
+
+    /* Destructive — coral */
+    --destructive: 14 63% 62%; /* #E07A5F coral-500 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & input */
+    --border: 60 6% 82%; /* #D0D0C8 slate-200 */
+    --input: 60 6% 82%;
+    --ring: 118 22% 45%; /* #5C8E5A sage-500 */
+
+    /* Chart colors */
+    --chart-1: 118 22% 45%; /* sage-500 */
+    --chart-2: 237 20% 31%; /* slate-700 */
+    --chart-3: 14 63% 62%; /* coral-500 */
+    --chart-4: 116 28% 70%; /* sage-300 */
+    --chart-5: 238 26% 40%; /* indigo-500 */
+
+    /* Sidebar */
+    --sidebar-background: 60 9% 92%;
+    --sidebar-foreground: 237 15% 22%;
+    --sidebar-primary: 118 22% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 112 37% 86%;
+    --sidebar-accent-foreground: 117 37% 25%;
+    --sidebar-border: 60 6% 82%;
+    --sidebar-ring: 118 22% 45%;
+
+    /* Border radius */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Core surfaces */
+    --background: 234 25% 15%; /* #1E2235 slate-900 */
+    --foreground: 60 10% 91%; /* #E8E8E2 */
+
+    /* Card */
+    --card: 236 24% 19%; /* #252B40 */
+    --card-foreground: 60 10% 91%;
+
+    /* Popover */
+    --popover: 236 24% 19%;
+    --popover-foreground: 60 10% 91%;
+
+    /* Primary — sage (lightened) */
+    --primary: 118 30% 58%; /* #7AAF78 sage-400 */
+    --primary-foreground: 120 38% 8%; /* #0A1A09 */
+
+    /* Secondary */
+    --secondary: 236 19% 22%; /* #2D3348 */
+    --secondary-foreground: 237 23% 67%; /* #9099B8 */
+
+    /* Muted */
+    --muted: 236 24% 20%; /* #252B40 */
+    --muted-foreground: 237 13% 45%; /* #6B7490 */
+
+    /* Accent */
+    --accent: 125 21% 21%; /* #263C27 */
+    --accent-foreground: 118 30% 62%; /* #7AAF78 */
+
+    /* Destructive */
+    --destructive: 14 63% 62%; /* #E07A5F coral-500 */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border & input */
+    --border: 236 27% 29%; /* #3A4060 */
+    --input: 236 27% 29%;
+    --ring: 118 30% 58%; /* #7AAF78 */
+
+    /* Chart colors */
+    --chart-1: 118 30% 58%; /* sage-400 */
+    --chart-2: 236 35% 63%; /* indigo-200 */
+    --chart-3: 14 63% 62%; /* coral-500 */
+    --chart-4: 118 18% 30%; /* sage-dk */
+    --chart-5: 237 13% 50%; /* slate-500 */
+
+    /* Sidebar */
+    --sidebar-background: 235 28% 17%;
+    --sidebar-foreground: 60 10% 91%;
+    --sidebar-primary: 118 30% 58%;
+    --sidebar-primary-foreground: 120 38% 8%;
+    --sidebar-accent: 125 21% 21%;
+    --sidebar-accent-foreground: 118 30% 62%;
+    --sidebar-border: 236 27% 29%;
+    --sidebar-ring: 118 30% 58%;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   5. CUSTOM SEMANTIC TOKENS — SaveSlip specific
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    /* === SaveSlip brand tokens === */
+
+    /* Backgrounds */
+    --ss-bg-base: #f4f4f0;
+    --ss-bg-surface: #eaeae5;
+    --ss-bg-elevated: #ffffff;
+    --ss-bg-sunken: #e8e8e3;
+    --ss-bg-overlay: rgba(45, 49, 66, 0.5);
+
+    /* Tinted backgrounds */
+    --ss-bg-sage: #d6e8d0;
+    --ss-bg-coral: #fad9cf;
+    --ss-bg-indigo: #c9cff0;
+    --ss-bg-warning: #fef3cd;
+
+    /* Text */
+    --ss-text-primary: #2d3142;
+    --ss-text-secondary: #6b6b64;
+    --ss-text-muted: #b0b0a8;
+    --ss-text-inverse: #f4f4f0;
+    --ss-text-sage: #2d5929;
+    --ss-text-coral: #7a2e18;
+    --ss-text-indigo: #1e2c6e;
+
+    /* Borders */
+    --ss-border-subtle: rgba(45, 49, 66, 0.08);
+    --ss-border-default: rgba(45, 49, 66, 0.15);
+    --ss-border-strong: rgba(45, 49, 66, 0.3);
+
+    /* Focus rings */
+    --ss-focus-ring: 0 0 0 3px rgba(92, 142, 90, 0.35);
+    --ss-focus-ring-danger: 0 0 0 3px rgba(224, 122, 95, 0.35);
+
+    /* Transaction amounts */
+    --ss-amount-positive: #5c8e5a;
+    --ss-amount-negative: #e07a5f;
+    --ss-amount-neutral: #6b6b64;
+
+    /* Budget states */
+    --ss-budget-good: #5c8e5a;
+    --ss-budget-warning: #c9901f;
+    --ss-budget-over: #e07a5f;
+  }
+
+  .dark {
+    /* Backgrounds */
+    --ss-bg-base: #1e2235;
+    --ss-bg-surface: #252b40;
+    --ss-bg-elevated: #2d3348;
+    --ss-bg-sunken: #181d2e;
+    --ss-bg-overlay: rgba(0, 0, 0, 0.6);
+
+    /* Tinted backgrounds */
+    --ss-bg-sage: #263c27;
+    --ss-bg-coral: #3d2520;
+    --ss-bg-indigo: #2a3060;
+    --ss-bg-warning: #3a2808;
+
+    /* Text */
+    --ss-text-primary: #e8e8f0;
+    --ss-text-secondary: #9099b8;
+    --ss-text-muted: #555d7a;
+    --ss-text-inverse: #1e2235;
+    --ss-text-sage: #7aaf78;
+    --ss-text-coral: #e07a5f;
+    --ss-text-indigo: #9099b8;
+
+    /* Borders */
+    --ss-border-subtle: rgba(255, 255, 255, 0.05);
+    --ss-border-default: rgba(255, 255, 255, 0.1);
+    --ss-border-strong: rgba(255, 255, 255, 0.2);
+
+    /* Focus rings */
+    --ss-focus-ring: 0 0 0 3px rgba(122, 175, 120, 0.4);
+    --ss-focus-ring-danger: 0 0 0 3px rgba(224, 122, 95, 0.4);
+
+    /* Transaction amounts */
+    --ss-amount-positive: #7aaf78;
+    --ss-amount-negative: #e07a5f;
+    --ss-amount-neutral: #9099b8;
+
+    /* Budget states */
+    --ss-budget-good: #7aaf78;
+    --ss-budget-warning: #c9a840;
+    --ss-budget-over: #e07a5f;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   6. BASE STYLES
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  h5 {
+    @apply text-base;
+  }
+  h6 {
+    @apply text-sm;
+  }
+
+  /* Links */
+  a {
+    @apply text-sage-600 hover:text-sage-700 transition-colors;
+  }
+
+  .dark a {
+    @apply text-sage-400 hover:text-sage-300;
+  }
+
+  /* Code */
+  code {
+    @apply font-mono text-sm bg-muted px-1 py-0.5 rounded;
+  }
+
+  pre {
+    @apply font-mono text-sm bg-muted p-4 rounded-lg overflow-x-auto border;
+  }
+
+  /* Form elements */
+  input,
+  textarea,
+  select {
+    @apply bg-background border border-input rounded-md px-3 py-2 text-sm transition-colors;
+    @apply focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-muted-foreground;
+  }
+
+  /* Tables */
+  table {
+    @apply w-full border-collapse;
+  }
+
+  th {
+    @apply bg-muted font-medium text-muted-foreground text-left px-3 py-2 text-sm border-b;
+  }
+
+  td {
+    @apply px-3 py-2 text-sm border-b;
+  }
+
+  /* Horizontal rule */
+  hr {
+    @apply border-t border-border my-6;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   7. COMPONENT UTILITIES
+   ────────────────────────────────────────────────────────────── */
+@layer components {
+  /* === Cards === */
+  .card-base {
+    @apply bg-card border border-border rounded-lg p-4;
+  }
+
+  .card-metric {
+    @apply bg-muted rounded-lg p-4;
+  }
+
+  /* === Buttons === */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium transition-colors;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2;
+  }
+
+  .btn-ghost {
+    @apply btn hover:bg-accent hover:text-accent-foreground px-4 py-2;
+  }
+
+  .btn-destructive {
+    @apply btn bg-destructive text-destructive-foreground hover:bg-destructive/90 px-4 py-2;
+  }
+
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  .btn-icon {
+    @apply w-9 h-9 p-0;
+  }
+
+  /* === Badges === */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-sage {
+    @apply bg-sage-100 text-sage-700;
+  }
+
+  .badge-coral {
+    @apply bg-coral-100 text-coral-700;
+  }
+
+  .badge-indigo {
+    @apply bg-indigo-100 text-indigo-700;
+  }
+
+  .badge-neutral {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .dark .badge-sage {
+    @apply bg-sage-950 text-sage-400;
+  }
+
+  .dark .badge-coral {
+    @apply bg-coral-950 text-coral-400;
+  }
+
+  .dark .badge-indigo {
+    @apply bg-indigo-950 text-indigo-400;
+  }
+
+  /* === Filter chips === */
+  .chip {
+    @apply inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium border transition-colors cursor-pointer;
+    @apply border-border bg-transparent text-muted-foreground;
+    @apply hover:bg-muted hover:text-foreground;
+  }
+
+  .chip-active {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+
+  /* === Transaction list === */
+  .txn-row {
+    @apply flex items-center justify-between py-2.5 border-b border-border last:border-0;
+  }
+
+  .txn-amount-positive {
+    @apply font-medium;
+    color: var(--ss-amount-positive);
+  }
+
+  .txn-amount-negative {
+    @apply font-medium;
+    color: var(--ss-amount-negative);
+  }
+
+  /* === Category avatar === */
+  .cat-avatar {
+    @apply w-9 h-9 rounded-lg flex items-center justify-center text-base shrink-0;
+  }
+
+  /* === Progress bar === */
+  .progress {
+    @apply h-1.5 rounded-full overflow-hidden;
+    background: var(--ss-bg-sunken);
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-500;
+  }
+
+  .progress-fill-good {
+    background: var(--ss-budget-good);
+  }
+
+  .progress-fill-warning {
+    background: var(--ss-budget-warning);
+  }
+
+  .progress-fill-over {
+    background: var(--ss-budget-over);
+  }
+
+  /* === Tab bar === */
+  .tab-bar {
+    @apply flex bg-muted rounded-lg overflow-hidden border border-border/50;
+  }
+
+  .tab-item {
+    @apply flex-1 text-center py-2 text-xs font-medium text-muted-foreground cursor-pointer transition-colors;
+  }
+
+  .tab-item-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* === Toast === */
+  .toast {
+    @apply bg-card border border-border rounded-lg p-3.5 shadow-lg flex items-start gap-3 max-w-sm;
+  }
+
+  .toast-success {
+    @apply border-l-[3px] border-l-sage-500 rounded-l-none;
+  }
+
+  .toast-error {
+    @apply border-l-[3px] border-l-coral-500 rounded-l-none;
+  }
+
+  /* === Skeleton === */
+  .skeleton {
+    @apply bg-muted rounded-md animate-pulse;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   8. UTILITY CLASSES
+   ────────────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Background textures */
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      circle,
+      var(--ss-border-subtle) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+  }
+
+  .bg-line-grid {
+    background-image:
+      linear-gradient(var(--ss-border-subtle) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ss-border-subtle) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-hatch {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 4px,
+      var(--ss-border-subtle) 4px,
+      var(--ss-border-subtle) 5px
+    );
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-custom::-webkit-scrollbar {
+    @apply w-1.5 h-1.5;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+    @apply bg-border/80;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   9. ACCESSIBILITY
+   ────────────────────────────────────────────────────────────── */
+@layer base {
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+   10. PRINT STYLES
+   ────────────────────────────────────────────────────────────── */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  .no-print {
+    @apply hidden;
+  }
+}
