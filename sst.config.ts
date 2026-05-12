@@ -11,6 +11,10 @@ export default $config({
     };
   },
   async run() {
-    new sst.aws.Nextjs("MyWeb");
+    new sst.aws.Nextjs("MyWeb", {
+      dev: {
+        command: "next dev",
+      },
+    });
   },
 });
