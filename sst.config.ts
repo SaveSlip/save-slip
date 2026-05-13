@@ -8,6 +8,9 @@ export default $config({
       removal: input?.stage === "production" ? "retain" : "remove",
       protect: ["production"].includes(input?.stage),
       home: "aws",
+      providers: {
+        cloudflare: "5.37.1",
+      },
     };
   },
   async run() {
@@ -26,6 +29,13 @@ export default $config({
     const pkg = await import("./package.json");
 
     new sst.aws.Nextjs("MyWeb", {
+      domain: $dev
+        ? undefined
+        : {
+            name: isProduction ? domain : `${$app.stage}.${domain}`,
+            redirects: isProduction ? [`www.${domain}`] : [],
+            dns: sst.cloudflare.dns({ proxy: true }),
+          },
       dev: {
         command: "next dev",
       },
