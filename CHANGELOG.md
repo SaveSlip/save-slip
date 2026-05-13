@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.5.0](https://github.com/SaveSlip/save-slip/compare/save-slip-v0.4.0...save-slip-v0.5.0) (2026-05-13)
+
+
+### Features
+
+* configure Cloudflare provider and domain management for SST deployments ([#16](https://github.com/SaveSlip/save-slip/issues/16)) ([196b7e1](https://github.com/SaveSlip/save-slip/commit/196b7e14fb5ff55bd0b363ac36698f1188083b57))
+* implement custom error handling and client-side error telemetry… ([#15](https://github.com/SaveSlip/save-slip/issues/15)) ([ef082d1](https://github.com/SaveSlip/save-slip/commit/ef082d1f2e4660d6f7b87ee9b04cd4dc9b5746a4))
+* implement structured request logging and context extraction utilities ([#12](https://github.com/SaveSlip/save-slip/issues/12)) ([d23fa8b](https://github.com/SaveSlip/save-slip/commit/d23fa8b3bf6fa4fd609414be0039a28ce1d8f0d2))
+* implement telemetry API route and move server utilities to dedicated directory ([#14](https://github.com/SaveSlip/save-slip/issues/14)) ([3a6bb95](https://github.com/SaveSlip/save-slip/commit/3a6bb95896ddc1cc99ec57ca7f73049bcc0a4ab0))
+
 ## [0.4.0](https://github.com/SaveSlip/save-slip/compare/save-slip-v0.3.0...save-slip-v0.4.0) (2026-05-13)
 
 
