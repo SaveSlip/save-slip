@@ -1,5 +1,7 @@
+import { type TelemetrySource } from "@/lib/telemetry";
+
 type ClientTelemetryPayload = {
-  source: string;
+  source: TelemetrySource;
   message: string;
   digest?: string;
 };
@@ -11,7 +13,11 @@ export async function postClientTelemetry(
     await fetch("/api/telemetry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({
+        ...payload,
+        url: window.location.href,
+        timestamp: new Date().toISOString(),
+      }),
     });
   } catch {
     // fire-and-forget — never throw from telemetry
