@@ -15,5 +15,12 @@
     "*.css": "tailwindcss"
   },
   "githubPullRequests.createOnPublishBranch": "always",
-  "workbench.iconTheme": "symbols"
+  "workbench.iconTheme": "symbols",
+  "cSpell.words": [
+    "ipcity",
+    "ipcontinent",
+    "ipcountry",
+    "iplatitude",
+    "iplongitude"
+  ]
 }
