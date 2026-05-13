@@ -1,6 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="./.sst/platform/config.d.ts" />
-import pkg from "./package.json";
 
 export default $config({
   app(input) {
@@ -23,6 +22,8 @@ export default $config({
         ? `https://${domain}`
         : `https://${$app.stage}.${domain}`;
     }
+
+    const pkg = await import("./package.json");
 
     new sst.aws.Nextjs("MyWeb", {
       dev: {
