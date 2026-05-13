@@ -15,6 +15,11 @@ const eslintConfig = defineConfig([
     // SST platform generated files
     ".sst/**",
   ]),
+  {
+    rules: {
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+    },
+  },
 ]);
 
 export default eslintConfig;
